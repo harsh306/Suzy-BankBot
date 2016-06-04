@@ -1,0 +1,43 @@
+import aiml,os
+import pygame
+import time
+
+pygame.init()
+white =(255,255,255)
+green = (161,212,144)
+black = (0,0,0)
+screen = pygame.display.set_mode((1200,600))
+pygame.display.set_caption('FOO')
+myfont = pygame.font.SysFont("monospace", 35)
+eztext=""
+txtbx = eztext.Input(maxlength=45, color=(255,0,0), prompt='type here: ')
+    # create the pygame clock
+clock = pygame.time.Clock()
+suzy=aiml.Kernel()
+suzy.learn("myAiml.aiml")
+
+
+gameExit = False
+
+while not gameExit:
+	for event in pygame.event.get():
+		if event.type == pygame.QUIT:
+		    gameExit = True
+	screen.fill(white)
+	clock.tick(30)
+	txtbx.update(events)
+        # blit txtbx on the sceen
+        txtbx.draw(screen)
+        # refresh the display
+        pygame.display.flip()
+	x=suzy.respond(raw_input("=>"))
+	os.system("espeak -ven-us+f3 -s145 %s" %x)
+    
+pygame.quit()
+quit()
+    
+    
+    
+while True: 
+	x=suzy.respond(raw_input("=>"))
+	os.system("espeak -ven-us+f3 -s145 %s" %x)

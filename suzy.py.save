@@ -1,0 +1,6 @@
+import aiml
+suzy=aiml.Kernel()
+suzy.learn("hello
+.aiml")
+suzy.respond("hello")
+#while True: print suzy.respond(raw_input("=>"))
